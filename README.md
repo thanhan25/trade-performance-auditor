@@ -42,14 +42,14 @@ trade-performance-auditor/
 ├── requirements.txt            # Frozen environment dependencies
 └── README.md                   # Operational portfolio documentation
 ```
-## Setup & Local Execution Guide
-### 1. Environment & Dependency Installation
+# Setup & Local Execution Guide
+## 1. Environment & Dependency Installation
 Isolate dependencies using a local Python environment wrapper:
 ```
 conda activate trade_env
 pip install pandas==2.2.0 numpy==1.26.0 pyarrow matplotlib seaborn pytest
 ```
-### 2. Run the Data Pipeline & Generate Visualization
+## 2. Run the Data Pipeline & Generate Visualization
 Execute the automated script sequence to ingest raw files, evaluate internal metrics, load structural database records, and export performance reports:
 ```
 # Run data extraction and database loading
@@ -58,10 +58,10 @@ python src/pipeline.py
 # Generate and save the visual distribution report
 python src/plots.py
 ```
-### 3. Running Automated Test Suites
+## 3. Running Automated Test Suites
 Verify algorithmic cleaning logic and mathematical field constraints against production-simulated data arrays:
-    pytest
-### 4. Querying Metrics via Self-Service Portal
+```pytest```
+## 4. Querying Metrics via Self-Service Portal
 Extract automated, localized metrics targeted by specific ticker keys directly through command arguments:
 ```
 # Extract overall execution metrics across all trading lines
@@ -70,4 +70,3 @@ python src/app.py
 # Extract metrics targeted directly to Nasdaq Futures profiles
 python src/app.py NQ=F
 ```
-
