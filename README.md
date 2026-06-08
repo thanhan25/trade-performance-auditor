@@ -1,7 +1,8 @@
-
 # Quantitative Trade Performance Auditor & Analytics Pipeline
 
 An automated, self-service end-to-end data processing framework engineered to ingest, clean, and analyze high-frequency multi-source algorithmic execution files. This system isolates transactional execution anomalies (slippage metrics and latency deviations), translates them into an optimized database environment for cross-functional business stakeholders, and provides automated reporting visualizations.
+
+![Quantitative Performance Analytics Dashboard](assets/latency_slippage_audit.png)
 
 ## Technical Architecture & Core Capabilities
 
