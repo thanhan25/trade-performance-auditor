@@ -7,6 +7,8 @@
 
 An automated, enterprise-grade data processing framework engineered to ingest, clean, and audit high-frequency multi-source algorithmic order execution files. This architecture isolates transactional execution anomalies (slippage matrices and latency deviations), handles variable missing metadata constraints, structures optimized database tables, and provides analytical reporting distributions.
 
+![Quantitative Performance Analytics Dashboard](assets/latency_slippage_audit.png)
+
 ## 🏗️ Architecture Design & Quality Standards
 
 - **PEP 517 Package Structures:** Built using modular package distribution architectures (`pyproject.toml` utilizing `setuptools` find filters) to decouple development dependency modules completely from operational runtime contexts.
