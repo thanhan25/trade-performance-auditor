@@ -1,99 +1,81 @@
 
-# High-Throughput Transactional Analytics & ETL Pipeline
+# Quantitative Trade Performance Auditor & Analytics Pipeline 📊
 
-An end-to-end data engineering and analytics pipeline designed to ingest, sanitize, and model high-frequency transactional log data into an optimized relational analytics warehouse.
+[![Continuous Integration Quality Gate](https://github.com/thanhan25/trade-performance-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/thanhan25/trade-performance-auditor/actions)
+![Python Version](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)
+![Test Coverage](https://img.shields.io/badge/coverage-90.91%25-green.svg)
 
-## 📊 Interactive Business Intelligence Dashboard
+An automated, enterprise-grade data processing framework engineered to ingest, clean, and audit high-frequency multi-source algorithmic order execution files. This architecture isolates transactional execution anomalies (slippage matrices and latency deviations), handles variable missing metadata constraints, structures optimized database tables, and provides analytical reporting distributions.
 
-> 🔗 **[View the Live Looker Studio Dashboard](![1781075946998](image/README/1781075946998.png))** > *Note: This interactive dashboard connects directly to our structured cloud warehouse layer, displaying real-time operational metrics, execution success rates, and processing latencies.*
+## 🏗️ Architecture Design & Quality Standards
 
----
+- **PEP 517 Package Structures:** Built using modular package distribution architectures (`pyproject.toml` utilizing `setuptools` find filters) to decouple development dependency modules completely from operational runtime contexts.
+- **Context-Managed Database Sessions:** Implements zero-dangling connection context layers featuring automatic transaction rollbacks to protect relational schemas under unexpected data warehouse disruptions.
+- **Decoupled Error Topologies:** Uses isolated custom exception hierarchies (`DataWarehouseIngestionError`, `QueryExecutionError`) to enforce strict internal boundaries instead of loose native string evaluations.
+- **Robust Continuous Integration (CI):** Backed by active GitHub Actions orchestrations executing formatting validation routines (`black`, `isort`) and regression testing loops across parallel Python environments automatically on every push.
 
-## 🎯 Business Context & Core Impact
+## 📦 Core Package Map
 
-High-throughput transactional networks (such as algorithmic trading frameworks, e-commerce ad exchanges, and digital payment rails) generate massive volumes of unstructured event logs. Raw logs are natively prone to execution anomalies, network jitter, and silent failures that mask underlying system inefficiencies and cause compounding financial slippage.
+```text
+trade-performance-auditor/
+│
+├── .github/workflows/
+│   └── ci.yml               # Multi-version continuous integration workflow runner
+│
+├── sql/
+│   └── schema.sql           # Defensive data warehouse schema layout initializations
+│
+├── src/trade_auditor/
+│   ├── __init__.py          # Package identification namespace hook
+│   ├── app.py               # Parameterized user reporting CLI module
+│   ├── config.py            # Central environment hydration and validation vault
+│   ├── database.py          # Relational storage context-session orchestrator
+│   ├── exceptions.py        # Project specific standalone domain error types
+│   ├── generate_data.py     # Sandbox mock dataset parsing pipeline
+│   ├── pipeline.py          # High-frequency processing ETL module
+│   └── plots.py             # Visual distribution charting utility
+│
+├── tests/
+│   └── test_pipeline.py     # Sandbox path tracking logic verification tests
+│
+└── pyproject.toml           # Unified metadata manifest and tool configuration matrix
+```
 
-* **The Problem:** Manual audit trails are unscalable, rendering it difficult to capture systemic latency, dropped events, or execution variance.
-* **The Solution:** This project engineers a robust, automated ETL pipeline using Python to parse distributed transaction logs, enforce strict programmatic data validation, and model storage layouts in an optimized relational database.
-* **The Business Value:** Transforms raw data noise into clear operational intelligence—reducing system auditing latency from manual hours to seconds, and exposing immediate optimization areas for engineering and business stakeholders.
+## 🚀 Installation & Environment Setup
 
----
-
-## 🏗️ Core Architecture & Pipeline Flow
-
-[ Raw Log Ingestion ]   --> Streamed or batched text data (.log / .csv)
-          │
-          ▼
-[ Python ETL Engine ]   --> Pathlib handling / Pandas structural sanitization
-          │
-          ▼
-[ Data Quality Engine ] --> Runtime type-casting, null-handling, & unit testing
-          │
-          ▼
-[ Database Layer ]      --> Relational schema design with optimized SQL querying
-          │
-          ▼
-[ BI Visualization ]    --> Cloud integration (BigQuery) to interactive Looker dashboards
-
-
-### 1. Ingestion & Automation (`src/pipeline.py`)
-
-* Leverages decoupled system file architectures to automatically locate, stream, and isolate unparsed execution logs.
-* Processes transactional metrics including tracking timestamps, status codes, modules, and performance overhead (in milliseconds).
-
-### 2. Data Quality Engineering & Integrity
-
-* Programmatically isolates corrupted fields, type mismatches, and structural anomalies.
-* Embeds explicit unit testing criteria to ensure that downstream metrics (such as average system latencies or failure distributions) map to pristine, accurate data points.
-
-### 3. Database Modeling & SQL Analytics
-
-* Structurally normalizes high-frequency transactional records into normalized relational entities.
-* Optimized SQL querying schemas allow rapid multi-dimensional slicing (e.g., aggregating error distributions across specific runtime engines or analyzing time-series volume spikes).
-
----
-
-## 📈 Cross-Industry Metric Mapping
-
-The engineering architecture embedded in this pipeline applies directly to any high-volume transactional ecosystem:
-
-| Analytical Engine Logic                      | Financial Trading Context              | Retail Media / E-Commerce Context         |
-| :------------------------------------------- | :------------------------------------- | :---------------------------------------- |
-| **Execution Variance / Latency**       | Network Slippage & Execution Speed     | Ad Server Placement Latency & API Lag     |
-| **Performance Ingestion Success Rate** | Strategy Win Rate / Fill Ratios        | Campaign Conversion Rates & ROAS Metrics  |
-| **System Attrition / Structural Risk** | Drawdown Caps & Margin Monitoring      | User Churn & Customer Retention Drop-offs |
-| **Expected Value Modeling**            | Strategy Expected Performance ($EV$) | Customer Lifetime Value (CLV) Calculation |
-
----
-
-## 🚀 Quickstart & Pipeline Validation
-
-### Prerequisites
-
-* Python 3.10+
-* SQLite3 / PostgreSQL
-
-### 1. Installation
-
-Clone the repository and install dependencies:
+Isolate your system environment variables and install the distribution package in editable development mode:
 
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/trade-performance-auditor.git](https://github.com/YOUR_GITHUB_USERNAME/trade-performance-auditor.git)
+# Clone the open-source tracking repository assets
+git clone [https://github.com/thanhan25/trade-performance-auditor.git](https://github.com/thanhan25/trade-performance-auditor.git)
 cd trade-performance-auditor
+
+# Sync package metadata structures along with quality tracking tools
+python -m pip install -e .[dev]
 ```
 
-### 2. Generate Mock Dataset
+## 🏃‍♂️ Running the Testing Framework Locally
 
-Initialize the local environment with sample high-throughput logs for out-of-the-box pipeline validation:
+Evaluate your local code layout modifications against our strict automated coverage targets:
 
 ```bash
-python create_logs_file.py
+python -m pytest
 ```
 
-### 3. Execute the ETL pipeline
+## 📊 Operating the Analytical Command Interface
 
-Parse, sanitize, and load the raw mock entries into your local data warehouse layer:
+Ingest fresh raw transaction metrics, compile analytical reports, and query specific instruments securely through runtime parameter inputs:
 
 ```bash
-python src/pipeline.py
+# 1. Trigger the transaction extraction and database cleaning loop
+python src/trade_auditor/pipeline.py
+
+# 2. Extract calculations and save high-resolution analytics charts
+python src/trade_auditor/plots.py
+
+# 3. Query all operational data lines across all tickers
+python src/trade_auditor/app.py
+
+# 4. Filter and query metrics targeted directly to Nasdaq Futures profiles
+python src/trade_auditor/app.py NQ=F
 ```
