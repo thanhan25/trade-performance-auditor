@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: trade-performance-auditor
+Version: 1.0.0
+Summary: Quantitative multi-source algorithmic order execution audit pipeline
+Requires-Python: >=3.11
+Requires-Dist: pandas>=2.2.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: matplotlib>=3.10.9
+Requires-Dist: seaborn>=0.13.2
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: pyarrow>=14.0.0
+Provides-Extra: dev
+Requires-Dist: pytest==9.0.3; extra == "dev"
+Requires-Dist: pytest-cov==4.1.0; extra == "dev"
+Requires-Dist: black==24.2.0; extra == "dev"
+Requires-Dist: isort==5.13.2; extra == "dev"

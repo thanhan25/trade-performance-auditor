@@ -1,8 +1,10 @@
 import sqlite3
-import pandas as pd
 import sys
 
+import pandas as pd
+
 DB_PATH = "data/database.db"
+
 
 def query_trade_metrics(ticker=None):
     conn = sqlite3.connect(DB_PATH)
@@ -31,13 +33,14 @@ def query_trade_metrics(ticker=None):
         """
         df = pd.read_sql_query(query, conn)
     conn.close()
-    
+
     if df.empty:
         print(f"No execution logs found for asset target parameter: {ticker}")
     else:
         print("\n=== Automated Self-Service Execution Audit Update ===")
         print(df.to_string(index=False))
         print("=====================================================\n")
+
 
 if __name__ == "__main__":
     target_ticker = sys.argv[1].upper() if len(sys.argv) > 1 else None

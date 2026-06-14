@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/trade_auditor/app.py
+src/trade_auditor/config.py
+src/trade_auditor/database.py
+src/trade_auditor/exceptions.py
+src/trade_auditor/generate_data.py
+src/trade_auditor/pipeline.py
+src/trade_auditor/plots.py
+src/trade_performance_auditor.egg-info/PKG-INFO
+src/trade_performance_auditor.egg-info/SOURCES.txt
+src/trade_performance_auditor.egg-info/dependency_links.txt
+src/trade_performance_auditor.egg-info/requires.txt
+src/trade_performance_auditor.egg-info/top_level.txt
+tests/test_pipeline.py
